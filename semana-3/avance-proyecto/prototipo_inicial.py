@@ -135,12 +135,10 @@ while opcion != "4":
                 valoracion = COSTO_VALORACION
 
             # Regla: los descuentos NO son acumulables; se aplica el mayor
+            # (adulto mayor 15 % tiene prioridad sobre paquete 10 %)
             es_adulto_mayor = edad >= EDAD_ADULTO_MAYOR
             es_paquete = sesiones >= SESIONES_PAQUETE
-            if es_adulto_mayor and es_paquete:
-                porcentaje = max(DESC_ADULTO_MAYOR, DESC_PAQUETE)
-                motivo = "Adulto mayor (mayor beneficio)"
-            elif es_adulto_mayor:
+            if es_adulto_mayor:
                 porcentaje = DESC_ADULTO_MAYOR
                 motivo = "Adulto mayor"
             elif es_paquete:
